@@ -3,57 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BbaJi Trip 2026</title>
-
+    <title>가평 빠지 대소동 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <section class="hero">
-        <h1>🏄‍♂️ BbaJi Trip 2026</h1>
+        <div class="hero-content">
+            <p class="hero-badge">2026.06.25 - 06.26 / 1박 2일</p>
+            <h1>🌊 가평 빠지 원정대</h1>
+            <p class="hero-subtitle">5명 출전</p>
+            <p class="hero-line">서울 → 가평 </p>
 
-        <p class="subtitle">
-            June 25–26 • Seoul → Gapyeong
-        </p>
-
-        <p>
-            6 Men • 1 Carnival • Unlimited Bad Decisions
-        </p>
+            <div class="countdown-box">
+                <p class="countdown-title">출발까지</p>
+                <div id="countdown">
+                    <span>계산 중...</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="card">
-        <h2>📍 Trip Overview</h2>
+    <main class="page-wrapper">
 
-        <p>
-            Destination: Gapyeong Water Park
-        </p>
+        <section class="card-section">
+            <h2>📍 여행 정보</h2>
 
-        <p>
-            Departure: Seoul Station
-        </p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>날짜</h3>
+                    <p>2026년 6월 25일 ~ 6월 26일</p>
+                </div>
 
-        <p>
-            Vehicle: Kia Carnival
-        </p>
+                <div class="info-card">
+                    <h3>장소</h3>
+                    <p>가평 빠지</p>
+                </div>
 
-        <p>
-            Duration: 1 Night / 2 Days
-        </p>
-    </section>
+                <div class="info-card">
+                    <h3>기간</h3>
+                    <p>1박 2일</p>
+                </div>
 
-    <section class="card">
-        <h2>👥 Members</h2>
+                <div class="info-card">
+                    <h3>차량</h3>
+                    <p>카니발</p>
+                </div>
+            </div>
+        </section>
 
-        <ul>
-            <li>🚗 Driver</li>
-            <li>📸 Photographer</li>
-            <li>🍺 Alcohol Minister</li>
-            <li>🏊 Water Survivor</li>
-            <li>😴 Sleep Specialist</li>
-            <li>🤡 Chaos Manager</li>
-        </ul>
-    </section>
+        <section class="card-section">
+            <h2>🚐 차량 배정</h2>
+
+            <div class="car-grid">
+                <div class="car-card">
+                    <h3>신준교 차</h3>
+                    <p>운전자: 신준교</p>
+                    <p>탑승자: 조준하, 최현호</p>
+                </div>
+
+                <div class="car-card">
+                    <h3>신동우 차</h3>
+                    <p>운전자: 신동우</p>
+                    <p>탑승자: 이우빈</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>👥 멤버 소개</h2>
+            <p class="section-note">카드를 클릭하면 상세 정보가 나옴</p>
+
+            <div class="member-grid">
+
+                <button class="member-card" onclick="openMember('jungyo')">
+                    <div class="member-emoji">🚗</div>
+                    <h3>신준교</h3>
+                    <p>운전공익</p>
+                </button>
+
+                <button class="member-card absent" onclick="openMember('seungmin')">
+                    <div class="member-emoji">🫡</div>
+                    <h3>최승민</h3>
+                    <p>휴가부자</p>
+                </button>
+
+                <button class="member-card" onclick="openMember('woobin')">
+                    <div class="member-emoji">⚓</div>
+                    <h3>이우빈</h3>
+                    <p>해군 꿀빨러</p>
+                </button>
+
+                <button class="member-card" onclick="openMember('junha')">
+                    <div class="member-emoji">🙏</div>
+                    <h3>조준하</h3>
+                    <p>혼전순결</p>
+                </button>
+
+                <button class="member-card" onclick="openMember('hyunho')">
+                    <div class="member-emoji">🪖</div>
+                    <h3>최현호</h3>
+                    <p>키 160 특전사</p>
+                </button>
+
+                <button class="member-card" onclick="openMember('dongwoo')">
+                    <div class="member-emoji">😎</div>
+                    <h3>신동우</h3>
+                    <p>존잘 드라이버</p>
+                </button>
+
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>💸 예산 현황</h2>
+
+            <div class="budget-box">
+                <div>
+                    <h3>숙소</h3>
+                    <p>250,000원</p>
+                </div>
+
+                <div>
+                    <h3>빠지</h3>
+                    <p>4만원정도</p>
+                </div>
+
+                <div>
+                    <h3>장보기</h3>
+                    <p>인당 2만원정도</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>📅 일정표</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span>Day 1</span>
+                    <p>서울 출발 → 가평 도착 → 빠지 → 숙소 → 저녁</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span>Day 2</span>
+                    <p>기상 → 해장 → 정리 → 복귀</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>🚨 여행 규칙</h2>
+
+            <ul class="rule-list">
+                <li>소주 강요 금지</li>
+                <li>운전자 술 강요 금지</li>
+                <li>휴가 못 맞춘 사람 조롱 가능</li>
+            </ul>
+        </section>
+
+        <section class="card-section">
+            <h2>📸 사진 갤러리</h2>
+            <p class="section-note">나중에 사진 파일을 업로드하면 여기에 넣으면 됨</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-placeholder">사진 준비 중</div>
+                <div class="gallery-placeholder">사진 준비 중</div>
+                <div class="gallery-placeholder">사진 준비 중</div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeMember()">×</button>
+            <img id="modalImage" src="" alt="member photo">
+            <h2 id="modalName"></h2>
+            <p id="modalRole"></p>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 가평 빠지 원정대</p>
+    </footer>
+
+    <script>
+        const tripDate = new Date("2026-06-25T11:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = tripDate - now;
+
+            if (distance <= 0) {
+                document.getElementById("countdown").innerHTML = "<span>출발 완료 🌊</span>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((distance / (1000 * 60)) % 60);
+            const seconds = Math.floor((distance / 1000) % 60);
+
+            document.getElementById("countdown").innerHTML = `
+                <div><strong>${days}</strong><small>일</small></div>
+                <div><strong>${hours}</strong><small>시간</small></div>
+                <div><strong>${minutes}</strong><small>분</small></div>
+                <div><strong>${seconds}</strong><small>초</small></div>
+            `;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        const members = {
+            jungyo: {
+                name: "신준교",
+                role: "운전공익출신",
+                description: "시즌 34호 다이어트 선언",
+                image: "images/jungyo.jpg"
+            },
+            seungmin: {
+                name: "최승민",
+                role: "휴가 부자",
+                description: "휴가 부잔데 왜 못왔징",
+                image: "images/seungmin.jpg"
+            },
+            woobin: {
+                name: "이우빈",
+                role: "해군 꿀빨러",
+                description: "개꿀빨러 신동우 차 탑승 예정.",
+                image: "images/woobin.jpg"
+            },
+            junho: {
+                name: "조준하",
+                role: "혼전순결 수호자",
+                description: "이번 여행의 도덕 담당. 빠지에서도 흔들리지 않는 순결한 정신세계 보유자.",
+                image: "images/junha.jpg"
+            },
+            hyunho: {
+                name: "최현호",
+                role: "키 160 특전사",
+                description: "160/68/10",
+                image: "images/hyunho.jpg"
+            },
+            dongwoo: {
+                name: "신동우",
+                role: "존잘 드라이버",
+                description: "이 사이트 제작자이자 공식 존잘 담당.",
+                image: "images/dongwoo.jpg"
+            }
+        };
+
+        function openMember(id) {
+            const member = members[id];
+
+            document.getElementById("modalName").textContent = member.name;
+            document.getElementById("modalRole").textContent = member.role;
+            document.getElementById("modalDescription").textContent = member.description;
+            document.getElementById("modalImage").src = member.image;
+            document.getElementById("memberModal").style.display = "flex";
+        }
+
+        function closeMember() {
+            document.getElementById("memberModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("memberModal");
+            if (event.target === modal) {
+                closeMember();
+            }
+        };
+    </script>
 
 </body>
 </html>
