@@ -443,3 +443,174 @@ footer {
         height: 150px;
     }
 }
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: -10%;
+    width: 120%;
+    height: 130px;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 50% 50% 0 0;
+    animation: waveMove 5s ease-in-out infinite alternate;
+}
+
+@keyframes waveMove {
+    from {
+        transform: translateX(-30px);
+    }
+    to {
+        transform: translateX(30px);
+    }
+}
+
+.card-section {
+    animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.check-item {
+    border: 1px solid var(--blue-soft);
+    background: #f0fbff;
+    border-radius: 18px;
+    padding: 18px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--blue-dark);
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.check-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow);
+}
+
+.check-item.checked {
+    background: var(--blue-main);
+    color: white;
+    text-decoration: line-through;
+}
+
+.check-item.checked::before {
+    content: "✅ ";
+}
+
+.penalty-section {
+    background: linear-gradient(180deg, #ffffff 0%, #fff8e1 100%);
+}
+
+.penalty-btn {
+    display: block;
+    margin: 0 auto 24px;
+    border: none;
+    background: var(--yellow);
+    color: #5c3d00;
+    padding: 16px 34px;
+    border-radius: 999px;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(255, 209, 102, 0.5);
+    transition: 0.25s ease;
+}
+
+.penalty-btn:hover {
+    transform: scale(1.06) rotate(-2deg);
+}
+
+#penaltyResult {
+    max-width: 680px;
+    margin: 0 auto;
+    background: white;
+    border: 2px dashed var(--yellow);
+    border-radius: 22px;
+    padding: 24px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--blue-dark);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0, 119, 182, 0.16);
+    transition: 0.25s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.04);
+}
+
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(2, 62, 138, 0.75);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.gallery-modal img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 24px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.member-card.absent::after {
+    content: "불참 확정";
+    display: inline-block;
+    margin-top: 12px;
+    background: #ff595e;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    transform: rotate(-6deg);
+}
+
+@media (max-width: 900px) {
+    .checklist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .checklist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-img {
+        height: 190px;
+    }
+}
