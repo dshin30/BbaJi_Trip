@@ -117,41 +117,62 @@
         </section>
 
         <section class="card-section">
-    <h2>💸 예산 계산기</h2>
-    <p class="section-note">쓴 돈 입력하면 총액이랑 인당 금액 자동 계산</p>
+    <h2>💸 예산 & 정산 시스템</h2>
+    <p class="section-note">총 사용 금액, 인당 금액, 누가 누구에게 보내야 하는지 자동 계산</p>
 
     <div class="budget-calculator">
-
-        <label>
-            숙소비
-            <input type="number" class="budget-input" placeholder="예: 250000">
+        <label>숙소비
+            <input type="number" class="budget-input" placeholder="250000">
         </label>
 
-        <label>
-            빠지비
-            <input type="number" class="budget-input" placeholder="예: 200000">
+        <label>빠지비
+            <input type="number" class="budget-input" placeholder="200000">
         </label>
 
-        <label>
-            장보기
-            <input type="number" class="budget-input" placeholder="예: 100000">
+        <label>장보기
+            <input type="number" class="budget-input" placeholder="100000">
         </label>
 
-        <label>
-            기름값
-            <input type="number" class="budget-input" placeholder="예: 50000">
+        <label>기름값
+            <input type="number" class="budget-input" placeholder="50000">
         </label>
 
-        <label>
-            기타비용
-            <input type="number" class="budget-input" placeholder="예: 30000">
+        <label>기타비용
+            <input type="number" class="budget-input" placeholder="30000">
         </label>
-
     </div>
 
     <div class="budget-result">
         <p>총 사용 금액: <strong id="totalBudget">0원</strong></p>
         <p>인당 금액: <strong id="perPersonBudget">0원</strong></p>
+    </div>
+
+    <h3 class="settlement-title">👛 각자 낸 돈</h3>
+
+    <div class="settlement-grid">
+        <label>신준교
+            <input type="number" class="paid-input" data-name="신준교" placeholder="0">
+        </label>
+
+        <label>이우빈
+            <input type="number" class="paid-input" data-name="이우빈" placeholder="0">
+        </label>
+
+        <label>조준하
+            <input type="number" class="paid-input" data-name="조준하" placeholder="0">
+        </label>
+
+        <label>최현호
+            <input type="number" class="paid-input" data-name="최현호" placeholder="0">
+        </label>
+
+        <label>신동우
+            <input type="number" class="paid-input" data-name="신동우" placeholder="0">
+        </label>
+    </div>
+
+    <div id="settlementResult" class="settlement-result">
+        아직 정산할 내용이 없음 😎
     </div>
 </section>
 
