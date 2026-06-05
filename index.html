@@ -163,17 +163,48 @@
             </ul>
         </section>
 
-        <section class="card-section">
-            <h2>📸 사진 갤러리</h2>
-            <p class="section-note">나중에 사진 파일을 업로드하면 여기에 넣으면 됨</p>
+<section class="card-section">
+    <h2>🎒 준비물 체크리스트</h2>
+    <p class="section-note">챙겼으면 클릭!</p>
 
-            <div class="gallery-grid">
-                <div class="gallery-placeholder">사진 준비 중</div>
-                <div class="gallery-placeholder">사진 준비 중</div>
-                <div class="gallery-placeholder">사진 준비 중</div>
-            </div>
-        </section>
+    <div class="checklist-grid">
+        <button class="check-item">수건</button>
+        <button class="check-item">여벌옷</button>
+        <button class="check-item">슬리퍼</button>
+        <button class="check-item">선크림</button>
+        <button class="check-item">충전기</button>
+        <button class="check-item">신분증</button>
+        <button class="check-item">속옷</button>
+        <button class="check-item">물놀이용 반바지</button>
+    </div>
+</section>
 
+<section class="card-section penalty-section">
+    <h2>🎲 랜덤 벌칙 뽑기</h2>
+    <p class="section-note">억까 금지. 운명임.</p>
+
+    <button class="penalty-btn" onclick="drawPenalty()">벌칙 뽑기</button>
+    <div id="penaltyResult">아직 아무도 걸리지 않음 😇</div>
+</section>
+        
+<section class="card-section">
+    <h2>📸 사진 갤러리</h2>
+    <p class="section-note">사진 클릭하면 크게 보임</p>
+
+    <div class="gallery-grid">
+        <img src="image/jungyo.JPG" class="gallery-img" onclick="openGallery(this.src)">
+        <img src="image/woobin.JPG" class="gallery-img" onclick="openGallery(this.src)">
+        <img src="image/hyunho.jpg" class="gallery-img" onclick="openGallery(this.src)">
+        <img src="image/dongwoo.jpg" class="gallery-img" onclick="openGallery(this.src)">
+        <img src="image/junha.JPG" class="gallery-img" onclick="openGallery(this.src)">
+        <img src="image/seungmin.JPG" class="gallery-img" onclick="openGallery(this.src)">
+    </div>
+</section>
+
+<div id="galleryModal" class="gallery-modal" onclick="closeGallery()">
+    <img id="galleryModalImage" src="">
+</div>
+        
     </main>
 
     <div id="memberModal" class="modal">
@@ -237,7 +268,7 @@
                 description: "개꿀빨러 신동우 차 탑승 예정.",
                 image: "image/woobin.JPG"
             },
-            junho: {
+            junha: {
                 name: "조준하",
                 role: "혼전순결 수호자",
                 description: "이번 여행의 도덕 담당. 빠지에서도 흔들리지 않는 순결한 정신세계 보유자.",
