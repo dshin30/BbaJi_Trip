@@ -260,134 +260,6 @@
         <p>© 2026 가평 빠지 원정대</p>
     </footer>
 
-    const budgetInputs = document.querySelectorAll(".budget-input");
-const memberCount = 5;
-
-function updateBudget() {
-    let total = 0;
-
-    budgetInputs.forEach(input => {
-        total += Number(input.value) || 0;
-    });
-
-    const perPerson = Math.ceil(total / memberCount);
-
-    document.getElementById("totalBudget").textContent =
-        total.toLocaleString("ko-KR") + "원";
-
-    document.getElementById("perPersonBudget").textContent =
-        perPerson.toLocaleString("ko-KR") + "원";
-}
-
-budgetInputs.forEach(input => {
-    input.addEventListener("input", updateBudget);
-});
-
-    const budgetInputs = document.querySelectorAll(".budget-input");
-const paidInputs = document.querySelectorAll(".paid-input");
-const memberCount = 5;
-
-function updateBudgetAndSettlement() {
-    let total = 0;
-
-    budgetInputs.forEach(input => {
-        total += Number(input.value) || 0;
-    });
-
-    const perPerson = Math.ceil(total / memberCount);
-
-    document.getElementById("totalBudget").textContent =
-        total.toLocaleString("ko-KR") + "원";
-
-    document.getElementById("perPersonBudget").textContent =
-        perPerson.toLocaleString("ko-KR") + "원";
-
-    calculateSettlement(perPerson);
-}
-
-function calculateSettlement(perPerson) {
-    const people = [];
-
-    paidInputs.forEach(input => {
-        const name = input.dataset.name;
-        const paid = Number(input.value) || 0;
-        const balance = paid - perPerson;
-
-        people.push({
-            name: name,
-            balance: balance
-        });
-    });
-
-    let debtors = people
-        .filter(person => person.balance < 0)
-        .map(person => ({
-            name: person.name,
-            amount: Math.abs(person.balance)
-        }));
-
-    let creditors = people
-        .filter(person => person.balance > 0)
-        .map(person => ({
-            name: person.name,
-            amount: person.balance
-        }));
-
-    const result = [];
-
-    let i = 0;
-    let j = 0;
-
-    while (i < debtors.length && j < creditors.length) {
-        const payAmount = Math.min(debtors[i].amount, creditors[j].amount);
-
-        if (payAmount > 0) {
-            result.push(
-                `${debtors[i].name} → ${creditors[j].name} : ${Math.ceil(payAmount).toLocaleString("ko-KR")}원 송금`
-            );
-        }
-
-        debtors[i].amount -= payAmount;
-        creditors[j].amount -= payAmount;
-
-        if (debtors[i].amount <= 0) i++;
-        if (creditors[j].amount <= 0) j++;
-    }
-
-    const settlementResult = document.getElementById("settlementResult");
-
-    if (totalBudgetIsZero()) {
-        settlementResult.innerHTML = "아직 정산할 내용이 없음 😎";
-        return;
-    }
-
-    if (result.length === 0) {
-        settlementResult.innerHTML = "정산 완료! 모두 공평하게 냄 🎉";
-    } else {
-        settlementResult.innerHTML = result
-            .map(item => `<div>${item}</div>`)
-            .join("");
-    }
-}
-
-function totalBudgetIsZero() {
-    let total = 0;
-
-    budgetInputs.forEach(input => {
-        total += Number(input.value) || 0;
-    });
-
-    return total === 0;
-}
-
-budgetInputs.forEach(input => {
-    input.addEventListener("input", updateBudgetAndSettlement);
-});
-
-paidInputs.forEach(input => {
-    input.addEventListener("input", updateBudgetAndSettlement);
-});
-
     <script>
         const tripDate = new Date("2026-06-25T11:00:00").getTime();
 
@@ -475,6 +347,123 @@ paidInputs.forEach(input => {
                 closeMember();
             }
         };
+        const checkItems = document.querySelectorAll(".check-item");
+
+checkItems.forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("checked");
+    });
+});
+
+const penalties = [
+    "편의점 심부름 당첨 🏪",
+    "고기 굽기 담당 당첨 🥩",
+    "설거지 담당 당첨 🧽",
+    "단체사진 기사 당첨 📸",
+    "아침 해장국 검색 담당 🍲",
+    "차 안 노래 선곡권 박탈 🎵",
+    "숙소 정리반 당첨 🧹",
+    "물티슈 챙기기 담당 🧻",
+    "최승민 놀리기 멘트 3개 작성 ✍️",
+    "운전자에게 감사 인사 3번 하기 🚗"
+];
+
+function drawPenalty() {
+    const randomIndex = Math.floor(Math.random() * penalties.length);
+    document.getElementById("penaltyResult").textContent = penalties[randomIndex];
+}
+
+function openGallery(src) {
+    document.getElementById("galleryModalImage").src = src;
+    document.getElementById("galleryModal").style.display = "flex";
+}
+
+function closeGallery() {
+    document.getElementById("galleryModal").style.display = "none";
+}
+
+const budgetInputs = document.querySelectorAll(".budget-input");
+const paidInputs = document.querySelectorAll(".paid-input");
+const memberCount = 5;
+
+function updateBudgetAndSettlement() {
+    let total = 0;
+
+    budgetInputs.forEach(input => {
+        total += Number(input.value) || 0;
+    });
+
+    const perPerson = Math.ceil(total / memberCount);
+
+    document.getElementById("totalBudget").textContent =
+        total.toLocaleString("ko-KR") + "원";
+
+    document.getElementById("perPersonBudget").textContent =
+        perPerson.toLocaleString("ko-KR") + "원";
+
+    calculateSettlement(perPerson, total);
+}
+
+function calculateSettlement(perPerson, total) {
+    const people = [];
+
+    paidInputs.forEach(input => {
+        const name = input.dataset.name;
+        const paid = Number(input.value) || 0;
+        const balance = paid - perPerson;
+
+        people.push({ name, balance });
+    });
+
+    const debtors = people
+        .filter(person => person.balance < 0)
+        .map(person => ({ name: person.name, amount: Math.abs(person.balance) }));
+
+    const creditors = people
+        .filter(person => person.balance > 0)
+        .map(person => ({ name: person.name, amount: person.balance }));
+
+    const result = [];
+
+    let i = 0;
+    let j = 0;
+
+    while (i < debtors.length && j < creditors.length) {
+        const payAmount = Math.min(debtors[i].amount, creditors[j].amount);
+
+        if (payAmount > 0) {
+            result.push(
+                `${debtors[i].name} → ${creditors[j].name} : ${Math.ceil(payAmount).toLocaleString("ko-KR")}원 송금`
+            );
+        }
+
+        debtors[i].amount -= payAmount;
+        creditors[j].amount -= payAmount;
+
+        if (debtors[i].amount <= 0) i++;
+        if (creditors[j].amount <= 0) j++;
+    }
+
+    const settlementResult = document.getElementById("settlementResult");
+
+    if (total === 0) {
+        settlementResult.innerHTML = "아직 정산할 내용이 없음 😎";
+    } else if (result.length === 0) {
+        settlementResult.innerHTML = "정산 완료! 모두 공평하게 냄 🎉";
+    } else {
+        settlementResult.innerHTML = result
+            .map(item => `<div>${item}</div>`)
+            .join("");
+    }
+}
+
+budgetInputs.forEach(input => {
+    input.addEventListener("input", updateBudgetAndSettlement);
+});
+
+paidInputs.forEach(input => {
+    input.addEventListener("input", updateBudgetAndSettlement);
+});
     </script>
 
 </body>
