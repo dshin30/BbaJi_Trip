@@ -117,25 +117,43 @@
         </section>
 
         <section class="card-section">
-            <h2>💸 예산 현황</h2>
+    <h2>💸 예산 계산기</h2>
+    <p class="section-note">쓴 돈 입력하면 총액이랑 인당 금액 자동 계산</p>
 
-            <div class="budget-box">
-                <div>
-                    <h3>숙소</h3>
-                    <p>250,000원</p>
-                </div>
+    <div class="budget-calculator">
 
-                <div>
-                    <h3>빠지</h3>
-                    <p>4만원정도</p>
-                </div>
+        <label>
+            숙소비
+            <input type="number" class="budget-input" placeholder="예: 250000">
+        </label>
 
-                <div>
-                    <h3>장보기</h3>
-                    <p>인당 2만원정도</p>
-                </div>
-            </div>
-        </section>
+        <label>
+            빠지비
+            <input type="number" class="budget-input" placeholder="예: 200000">
+        </label>
+
+        <label>
+            장보기
+            <input type="number" class="budget-input" placeholder="예: 100000">
+        </label>
+
+        <label>
+            기름값
+            <input type="number" class="budget-input" placeholder="예: 50000">
+        </label>
+
+        <label>
+            기타비용
+            <input type="number" class="budget-input" placeholder="예: 30000">
+        </label>
+
+    </div>
+
+    <div class="budget-result">
+        <p>총 사용 금액: <strong id="totalBudget">0원</strong></p>
+        <p>인당 금액: <strong id="perPersonBudget">0원</strong></p>
+    </div>
+</section>
 
         <section class="card-section">
             <h2>📅 일정표</h2>
