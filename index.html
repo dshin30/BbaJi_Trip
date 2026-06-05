@@ -488,6 +488,31 @@ budgetInputs.forEach(input => {
 paidInputs.forEach(input => {
     input.addEventListener("input", updateBudgetAndSettlement);
 });
+
+const bgm = document.getElementById("bgm");
+const musicBtn = document.getElementById("musicBtn");
+const volumeSlider = document.getElementById("volumeSlider");
+const volumeText = document.getElementById("volumeText");
+
+bgm.volume = 0.2;
+
+function toggleMusic() {
+    if (bgm.paused) {
+        bgm.play();
+        musicBtn.textContent = "⏸️ 브금 정지";
+        musicBtn.classList.add("playing");
+    } else {
+        bgm.pause();
+        musicBtn.textContent = "▶️ 브금 재생";
+        musicBtn.classList.remove("playing");
+    }
+}
+
+volumeSlider.addEventListener("input", () => {
+    const volume = volumeSlider.value;
+    bgm.volume = volume / 100;
+    volumeText.textContent = `볼륨 ${volume}%`;
+});
     </script>
 
 </body>
