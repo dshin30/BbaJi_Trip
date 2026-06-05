@@ -239,6 +239,29 @@
         <p>© 2026 가평 빠지 원정대</p>
     </footer>
 
+    const budgetInputs = document.querySelectorAll(".budget-input");
+const memberCount = 5;
+
+function updateBudget() {
+    let total = 0;
+
+    budgetInputs.forEach(input => {
+        total += Number(input.value) || 0;
+    });
+
+    const perPerson = Math.ceil(total / memberCount);
+
+    document.getElementById("totalBudget").textContent =
+        total.toLocaleString("ko-KR") + "원";
+
+    document.getElementById("perPersonBudget").textContent =
+        perPerson.toLocaleString("ko-KR") + "원";
+}
+
+budgetInputs.forEach(input => {
+    input.addEventListener("input", updateBudget);
+});
+
     <script>
         const tripDate = new Date("2026-06-25T11:00:00").getTime();
 
