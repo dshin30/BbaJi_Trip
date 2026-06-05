@@ -1,1 +1,95 @@
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(180deg, #dff6ff 0%, #f7fbff 45%, #ffffff 100%);
+    color: #16324f;
+    line-height: 1.7;
+}
+
+.hero {
+    min-height: 70vh;
+    padding: 90px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(0, 119, 182, 0.25), rgba(255, 255, 255, 0.75)),
+        linear-gradient(135deg, #00b4d8, #90e0ef, #caf0f8);
+}
+
+.hero h1 {
+    font-size: 56px;
+    margin: 0 0 16px;
+    color: #023e8a;
+}
+
+.hero p {
+    font-size: 22px;
+    margin: 8px 0;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #0077b6;
+}
+
+.card {
+    max-width: 900px;
+    margin: 36px auto;
+    padding: 32px 38px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 8px 28px rgba(0, 119, 182, 0.15);
+    border: 1px solid rgba(0, 180, 216, 0.18);
+}
+
+.card h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #023e8a;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.card p {
+    font-size: 18px;
+    text-align: center;
+    margin: 12px 0;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card li {
+    background: #f0fbff;
+    margin: 12px auto;
+    padding: 14px 18px;
+    max-width: 480px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid #caf0f8;
+}
+
+@media (max-width: 700px) {
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .card {
+        margin: 24px 14px;
+        padding: 24px 20px;
+    }
+}
