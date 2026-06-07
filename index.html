@@ -283,40 +283,72 @@
         <p>© 2026 가평 빠지 원정대</p>
     </footer>
 
-    <script>
-        const tripDate = new Date("2026-06-25T11:00:00").getTime();
+<script>
+const tripDate = new Date("2026-06-25T11:00:00").getTime();
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = tripDate - now;
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = tripDate - now;
 
-            if (distance <= 0) {
-                document.getElementById("countdown").innerHTML = "<span>출발 완료 🌊</span>";
-                return;
-            }
+    if (distance <= 0) {
+        document.getElementById("countdown").innerHTML = "<span>출발 완료 🌊</span>";
+        return;
+    }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((distance / (1000 * 60)) % 60);
-            const seconds = Math.floor((distance / 1000) % 60);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
 
-            document.getElementById("countdown").innerHTML = `
-                <di음",
-                image: "image/junha.JPG"
-            },
-            hyunho: {
-                name: "최현호",
-                role: "키 160 특전사",
-                description: "160/68/10",
-                image: "image/hyunho.jpg"
-            },
-            dongwoo: {
-                name: "신동우",
-                role: "존잘 드라이버",
-                description: "이 사이트 제작자이자 공식 존잘 담당.",
-                image: "image/dongwoo.jpg"
-            }
-        };
+    document.getElementById("countdown").innerHTML = `
+        <div>${days}일</div>
+        <div>${hours}시간</div>
+        <div>${minutes}분</div>
+        <div>${seconds}초</div>
+    `;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+const members = {
+    jungyo: {
+        name: "신준교",
+        role: "운전공익",
+        description: "공식 운전자. 조준하와 최현호를 태우고 가는 책임자.",
+        image: "image/jungyo.JPG"
+    },
+    seungmin: {
+        name: "최승민",
+        role: "휴가 실패자",
+        description: "휴가를 못 맞춰서 못 오는 비운의 남자.",
+        image: "image/seungmin.JPG"
+    },
+    woobin: {
+        name: "이우빈",
+        role: "해군 꿀빨러",
+        description: "바다의 남자. 하지만 빠지에서는 그냥 탑승객.",
+        image: "image/woobin.JPG"
+    },
+    junha: {
+        name: "조준하",
+        role: "혼전순결",
+        description: "믿음직한 혼전순결 담당.",
+        image: "image/junha.JPG"
+    },
+    hyunho: {
+        name: "최현호",
+        role: "키 160 특전사",
+        description: "160/68/10",
+        image: "image/hyunho.jpg"
+    },
+    dongwoo: {
+        name: "신동우",
+        role: "존잘 드라이버",
+        description: "이 사이트 제작자이자 공식 존잘 담당.",
+        image: "image/dongwoo.jpg"
+    }
+};
 
         function openMember(id) {
             const member = members[id];
